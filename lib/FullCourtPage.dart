@@ -1,4 +1,6 @@
-import 'package:badminton/CommonHelpers.dart';
+import 'package:badminton/ListOfCourts.dart';
+
+import 'CommonHelpers.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
@@ -19,7 +21,6 @@ class FullCourtState extends State<FullCourtPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       home: Scaffold(
         body: buildCourtPage(context),
         floatingActionButtonLocation: FloatingActionButtonLocation.miniStartTop,
@@ -47,7 +48,15 @@ class FullCourtState extends State<FullCourtPage> {
           commonHelper.buildAddressRow(widget.court, context),
           Center(
             child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CourtLayoutPage(
+                        court: widget.court,
+                      ),
+                    ));
+              },
               color: Colors.red,
               child: Text(
                 'Reserve',

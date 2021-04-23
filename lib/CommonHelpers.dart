@@ -169,4 +169,38 @@ class CommonHelper {
       ],
     );
   }
+
+  AppBar buildAppBar(BuildContext context, String title) {
+    return AppBar(
+      backgroundColor: Colors.white,
+      title: Text(
+        title +
+            '   ' +
+            DateTime.now().month.toString() +
+            '/' +
+            DateTime.now().day.toString(),
+        style: TextStyle(color: Colors.black),
+      ),
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+        onPressed: () => Navigator.of(context).pop(),
+      ),
+      actions: [
+        IconButton(
+          onPressed: () async {
+            DateTime newDate = await showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime(DateTime.now().year - 1),
+              lastDate: DateTime(DateTime.now().year + 1),
+            );
+          },
+          icon: Icon(
+            Icons.calendar_today_outlined,
+            color: Colors.black,
+          ),
+        ),
+      ],
+    );
+  }
 }
