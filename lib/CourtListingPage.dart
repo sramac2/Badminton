@@ -27,9 +27,10 @@ class CourtListingState extends State<CourtListingPage> {
     'address': '3975 Lakefield Ct #102, Suwanee, GA 30024',
     'open': '6AM',
     'close': '11pm',
-    'openingHour':8,
+    'openingHour': 8,
     'price': 13,
-    'description':'ABC started in 11/11/2011. But it took its roots to grow in 2013. SVC – Souther VolleyBall Center gave us the platform and their facility to start playing only on the weekends, Saturday Evenings and Sunday Mornings, which bought in all the badminton lovers near and far. In a year we had grown more member’s and we had find a new facility. But the facility was too away from the crowd. Finally ABC got its roots growing back in Suwanee. Welcomes Badminton Lover’s. We'
+    'description':
+        'ABC started in 11/11/2011. But it took its roots to grow in 2013. SVC – Souther VolleyBall Center gave us the platform and their facility to start playing only on the weekends, Saturday Evenings and Sunday Mornings, which bought in all the badminton lovers near and far. In a year we had grown more member’s and we had find a new facility. But the facility was too away from the crowd. Finally ABC got its roots growing back in Suwanee. Welcomes Badminton Lover’s. We'
   };
 
   Map<String, dynamic> ARC = {
@@ -45,9 +46,10 @@ class CourtListingState extends State<CourtListingPage> {
     'address': '2711 Pine Grove Rd, Cumming, GA 30041',
     'open': '4PM',
     'close': '10pm',
-    'openingHour':8,
+    'openingHour': 8,
     'price': 10,
-    
+    'description':
+        'ARC started in 11/11/2011. But it took its roots to grow in 2013. SVC – Souther VolleyBall Center gave us the platform and their facility to start playing only on the weekends, Saturday Evenings and Sunday Mornings, which bought in all the badminton lovers near and far. In a year we had grown more member’s and we had find a new facility. But the facility was too away from the crowd. Finally ARC got its roots growing back in Suwanee. Welcomes Badminton Lover’s. We'
   };
 
   List<Map<String, dynamic>> data;
@@ -62,7 +64,6 @@ class CourtListingState extends State<CourtListingPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        
         body: ListView.builder(
             itemCount: data.length,
             itemBuilder: (context, index) {
@@ -95,9 +96,7 @@ class CourtListingState extends State<CourtListingPage> {
           elevation: 8,
           child: Column(
             children: [
-              Container(
-                child: commonHelper.buildCarousel(images, context)
-              ),
+              Container(child: commonHelper.buildCarousel(images, context)),
               Row(children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -127,7 +126,7 @@ class CourtListingState extends State<CourtListingPage> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          '\$' + data[index]['price'].toString() + '/Hr.',
+                          '\$' + data[index]['price'].toString() + '/Hr',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -135,9 +134,6 @@ class CourtListingState extends State<CourtListingPage> {
                   ],
                 ),
               ),
-              Row(
-                children: [],
-              )
             ],
           ),
         ),
