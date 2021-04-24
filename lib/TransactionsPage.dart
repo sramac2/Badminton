@@ -41,11 +41,7 @@ class TransactionsState extends State<TransactionsPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text(
-            'Transactions',
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.white,
+          title: Text('Transcation'),
         ),
         body: buildTransactionsList(),
       ),
@@ -56,17 +52,86 @@ class TransactionsState extends State<TransactionsPage> {
     return ListView.builder(
         itemCount: transactions.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            
-            trailing: Text(
-              '\$' + transactions[index],
-            ),
-            leading: CircleAvatar(
-              child: Image.asset(imagePaths[index]),
-            ),
-            title: Text(titles[index]),
-            subtitle: Text(subtitles[index]),
-          );
+          return InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TranscationDetails(
+                            imagePath: imagePaths[index],
+                            transactions: transactions[index],
+                            playedOn: subtitles[index])));
+              },
+              child: ListTile(
+                trailing: Text(
+                  '\$' + transactions[index],
+                ),
+                leading: CircleAvatar(
+                  child: Image.asset(imagePaths[index]),
+                ),
+                title: Text(titles[index]),
+                subtitle: Text(subtitles[index]),
+              ));
         });
+  }
+}
+
+class TranscationDetails extends StatefulWidget {
+  TranscationDetails(
+      {Key key, this.imagePath, this.transactions, this.playedOn})
+      : super(key: key);
+  String imagePath, transactions, playedOn;
+  @override
+  _TranscationDetailsState createState() => _TranscationDetailsState();
+}
+
+class _TranscationDetailsState extends State<TranscationDetails> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          leading: InkWell(
+              child: Icon(Icons.arrow_back, color: Colors.black),
+              onTap: () {
+                Navigator.pop(context);
+              }),
+          title: Text(
+            'Transactions details',
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+        ),
+        body: Center(
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(top: 20.0),
+              height: 200.0,
+              child: Card(
+                elevation: 20.0,
+                child: Image.asset(widget.imagePath),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text("Payment method: Card"),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text("Date of game:" + widget.playedOn),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text("Booked fee : " + widget.transactions + "\$"),
+            SizedBox(
+              height: 10.0,
+            ),
+            // ignore: missing_required_param
+            // ignore: deprecated_member_use
+            RaisedButton(onPressed: () {}, child: Text("Re-book my court")),
+          ],
+        )));
   }
 }

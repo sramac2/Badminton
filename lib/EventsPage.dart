@@ -75,13 +75,10 @@ class _StartPageState extends State<StartPage> {
                           horizontal: 12.0,
                           vertical: 4.0,
                         ),
-                        decoration: BoxDecoration(
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
                         child: ListTile(
                           onTap: () => print('${value[index]}'),
                           title: Text('${value[index]}'),
+                          subtitle: Text("Played at ABC on 03/30/2021"),
                         ),
                       );
                     },
@@ -111,7 +108,7 @@ class _StartPageState extends State<StartPage> {
   List<String> _getEventsForDay(DateTime day) {
     // Implementation example
     if (day.day == 20 || day.day == 14 || day.day == 30 || day.day == 10) {
-      return ['5am', '7am', '9am', '11am'];
+      return ['5 AM', '7 AM', '9 AM', '11 AM'];
     } else {
       return [];
     }
