@@ -41,35 +41,33 @@ class _CourtLayoutPageState extends State<CourtLayoutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      appBar: commonHelper.buildAppBar(context, 'Choose a court'),
+        appBar: commonHelper.buildAppBar(context, 'Choose a court'),
         body: GridView.count(
-      primary: false,
-      padding: const EdgeInsets.all(20),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      crossAxisCount: 2,
-      children: <Widget>[
-        InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => CourtTimeListingPage(
-                          court: widget.court,
-                          courtName: "Court 1",
-                        ) //ListCourt(
-                    // court: widget.court,
-                    //)
-                    ));
-          },
-          child: cardCourt("Court 1", "assets/images/ABC/greenCourt.png"),
-        ),
-        cardCourt("Court 2", "assets/images/ABC/redCourt.jpg"),
-        cardCourt("Court 3", "assets/images/ABC/greenCourt.png"),
-        cardCourt("Court 4", "assets/images/ABC/redCourt.jpg"),
-      ],
-    ));
+          primary: false,
+          padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 2,
+          children: <Widget>[
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CourtTimeListingPage(
+                              court: widget.court,
+                              courtName: "Court 1",
+                            ) //ListCourt(
+                        // court: widget.court,
+                        //)
+                        ));
+              },
+              child: cardCourt("Court 1", "assets/images/ABC/greenCourt.png"),
+            ),
+            cardCourt("Court 2", "assets/images/ABC/redCourt.jpg"),
+            cardCourt("Court 3", "assets/images/ABC/greenCourt.png"),
+            cardCourt("Court 4", "assets/images/ABC/redCourt.jpg"),
+          ],
+        ));
   }
 }
-
