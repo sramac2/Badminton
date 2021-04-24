@@ -1,8 +1,9 @@
 import 'package:badminton/CourtListingPage.dart';
 import 'package:badminton/EventsPage.dart';
 import 'package:badminton/TransactionsPage.dart';
-import 'package:badminton/ProfilePage.dart';
 import 'package:flutter/material.dart';
+
+import 'ProfilePage.dart';
 
 void main() {
   runApp(HomePage());
