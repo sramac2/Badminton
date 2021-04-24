@@ -25,7 +25,6 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-  CalendarFormat _calendarFormat = CalendarFormat.month;
   ValueNotifier<List<String>> _selectedEvents;
   RangeSelectionMode _rangeSelectionMode = RangeSelectionMode
       .toggledOff; // Can be toggled on/off by longpressing a date
@@ -54,7 +53,7 @@ class _StartPageState extends State<StartPage> {
               firstDay: DateTime.utc(2010, 10, 16),
               lastDay: DateTime.utc(2030, 3, 14),
               focusedDay: DateTime.now(),
-              calendarFormat: CalendarFormat.twoWeeks,
+              calendarFormat: CalendarFormat.month,
               selectedDayPredicate: (day) {
                 return isSameDay(_selectedDay, day);
               },
@@ -111,11 +110,7 @@ class _StartPageState extends State<StartPage> {
 
   List<String> _getEventsForDay(DateTime day) {
     // Implementation example
-    if (day.day == 20 ||
-        
-        day.day == 14 ||
-        day.day == 30 ||
-        day.day == 10) {
+    if (day.day == 20 || day.day == 14 || day.day == 30 || day.day == 10) {
       return ['5am', '7am', '9am', '11am'];
     } else {
       return [];

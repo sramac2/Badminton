@@ -1,5 +1,6 @@
 import 'package:badminton/CourtListingPage.dart';
 import 'package:badminton/EventsPage.dart';
+import 'package:badminton/TransactionsPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,10 +16,7 @@ class HomeState extends State<HomePage> {
   static List<Widget> _widgetOptions = <Widget>[
     CourtListingPage(),
     CalendarApp(),
-    Text(
-      'Index 3: School',
-      // style: optionStyle,
-    ),
+    TransactionsPage()
   ];
   int _selectedIndex = 0;
   @override
